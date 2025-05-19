@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
+import Logger.Logger;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
@@ -19,6 +20,8 @@ public class Server {
     static class MyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
+
+
             String response = "Hello, World from Java!";
             t.sendResponseHeaders(200, response.getBytes().length);
             OutputStream os = t.getResponseBody();
